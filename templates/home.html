@@ -2,8 +2,40 @@
 <html>
     <head>
         <title>GCP website</title>
+        <style>
+            h1 {
+                font-size: 40;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                color: rgb(100, 100, 100);
+                text-align: center;
+            }
+
+            #banner {
+                width: 100%;
+                height: 320px;
+                object-fit: cover;
+            }
+
+            h2 
+            {
+                font-size: 30;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                color: rgb(100, 100, 100);
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
-        Hello there this website is used for GCP automation
+        <h1>PE Automation website for GCP</h1>
+        <img id="banner" src="static/banner.jpg" >
+        <h2>About PE website</h2>
+        
+        <form action="/uploadfile" method="post" enctype="multipart/form-data">
+            <label for="file">Select a file:</label>
+            <input type="file" id="file" name="file" accept=".*"> <!-- accept attribute limits file types -->
+            <br>
+            <input type="submit" value="Upload File">
+        </form>
+
     </body>
 </html>

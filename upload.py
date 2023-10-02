@@ -1,9 +1,9 @@
-from flask import Flask, render_template, request
-app=Flask(__name__)
-@app.route("/")
-def helloworld():
-    return render_template('home.html')
+from flask import *
 
+app = Flask(__name__)
+
+
+@app.route('/')
 def upload():
     return render_template("home.html")
 
@@ -14,5 +14,7 @@ def success():
         f = request.files['file']
         f.save(f.filename)
         return render_template("success.html", name=f.filename)
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

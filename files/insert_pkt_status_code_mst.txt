@@ -1,0 +1,2 @@
+bash: mysql: command not found
+date:Use Statement failed

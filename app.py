@@ -12,7 +12,8 @@ def upload():
 def success():
     if request.method == 'POST':
         f = request.files['file']
-        f.save(f.filename)
+        # f.save(f.filename)
+        f.save('D:/HotTechnologies/python/FlaskWebsiteDevelopement/files/' + f.filename)
         return render_template("success.html", name=f.filename)
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)

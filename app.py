@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 app=Flask(__name__)
 from upload import *
 from webdev import *
+from downloadgcs import *
 
 
 if __name__ == "__main__":

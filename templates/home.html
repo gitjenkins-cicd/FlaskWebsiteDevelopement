@@ -3,6 +3,9 @@
     <head>
         <title>GCP website</title>
         <style>
+            /* <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title> */
             h1 {
                 font-size: 40;
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -14,8 +17,20 @@
                 width: 100%;
                 height: 100px;
                 object-fit: cover;
+                text-align: center;
             }
-
+            #uploadfile {
+                width: 100%;
+                height: 100px;
+                object-fit: cover;
+                text-align: left;
+            }
+            #downloadfile {
+                width: 100%;
+                height: 100px;
+                object-fit: cover;
+                text-align: left;
+            }
             h2 
             {
                 font-size: 30;
@@ -30,22 +45,17 @@
         <img id="banner" src="static/banner1.jpg" >
         <h2>About PE website</h2>
         
-        <form action="/uploadfile" method="post" enctype="multipart/form-data">
+        <form id="uploadfile" action="/uploadfile" method="post" enctype="multipart/form-data">
             <label for="file">Select a file:</label>
             <input type="file" id="file" name="file" accept=".*"> <!-- accept attribute limits file types -->
-            <br>
+            <!-- <br> -->
             <input type="submit" value="Upload File">
         </form>
 
-        <h1>Download a File</h1>
-
-        <a href="/downloadfile/report.html" download>Download Sample Text File</a>
-        <h1>Download a File</h1>
-
-    <form action="/download" method="get">
+    <form id="downloadfile" action="/download" method="get">
         <label for="filename">Enter Filename:</label>
         <input type="text" id="filename" name="filename" required>
-        <button type="submit">Download</button>
+        <button type="submit">Download File</button>
     </form>
     </body>
 </html>

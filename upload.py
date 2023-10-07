@@ -35,3 +35,41 @@ def download_gcsfile():
         return send_file(files, as_attachment=True)
     except Exception as e:
         return str(e)
+
+# from flask_mysqldb import MySQL
+# app.config['MYSQL_HOST'] = '127.0.0.1'
+# app.config['MYSQL_USER'] = 'root'
+# app.config['MYSQL_PASSWORD'] = 'redhat'
+# app.config['MYSQL_DB'] = 'mysql'
+# mysql = MySQL(app)
+
+# @app.route('/db')
+# def index():
+#     cur = mysql.connection.cursor()
+#     cur.execute('SELECT * FROM user')
+#     if cur is None:
+#         return "Failed to establish a database connection."
+#     data = cur.fetchall()
+#     cur.close()
+#     return render_template('index.html', user=data)
+
+
+from flask_sqlalchemy import SQLAlchemy
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:redhat@localhost/mysql'
+db = SQLAlchemy(app)
+
+# class User(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     username = db.Column(db.String(80), unique=True, nullable=False)
+
+#     def __repr__(self):
+#         return f'<User {self.username}>'
+
+@app.route('/db')
+def index():
+    result = db.engine.execute('SELECT User, Host, authentication_string FROM user')
+    users = [dict(row) for row in result]
+    # print(Host)
+    # user1=[row for row in users]
+    # print(user1)
+    return render_template('index.html', users=users)

@@ -2,11 +2,15 @@
 <html>
     <head>
         <title>GCP website</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Page</title>
+        <link rel="stylesheet" href="static/styleshome.css">
         <style>
             /* <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title> */
-            h1 {
+            /* h1 {
                 font-size: 40;
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                 color: rgb(100, 100, 100);
@@ -18,8 +22,8 @@
                 height: 100px;
                 object-fit: cover;
                 text-align: center;
-            }
-            #uploadfile {
+            } */
+            /* #uploadfile {
                 width: 100%;
                 height: 100px;
                 object-fit: cover;
@@ -29,33 +33,42 @@
                 width: 100%;
                 height: 100px;
                 object-fit: cover;
-                text-align: left;
+                text-align: right;
             }
-            h2 
-            {
+            h2  */
+            /* {
                 font-size: 30;
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                 color: rgb(100, 100, 100);
                 text-align: center;
-            }
+            } */
         </style>
     </head>
     <body>
+        <div class="container">
         <h1>PE Automation website for GCP</h1>
         <!-- <img id="banner" src="static/banner1.jpg" > -->
         <!-- <h2>About PE website</h2> -->
-        
-        <form id="uploadfile" action="/uploadfile" method="post" enctype="multipart/form-data">
-            <label for="file">Select a file:</label>
-            <input type="file" id="file" name="file" accept=".*"> <!-- accept attribute limits file types -->
+        <br>
+        <h2>Upload a File</h2>
+        <form  action="/uploadfile" method="post" enctype="multipart/form-data">
+            <div class="upload-btn-wrapper> 
+                <label for="file">Select a file:</label>
+                <input type="file" id="file" name="file" accept=".*"> <!-- accept attribute limits file types -->
             <!-- <br> -->
+        </div>
             <input type="submit" value="Upload File">
         </form>
-
-        <form id="downloadfile" action="/download" method="get">
-            <label for="filename">Enter Filename:</label>
-            <input type="text" id="filename" name="filename" required>
+   
+        <br>
+        <h2>Download a File</h2>
+        <form action="/download" method="get">
+            <div class="form-group">
+                <label for="filename">Enter Filename:</label>
+                <input type="text" id="filename" name="filename" required>
+            </div>
             <button type="submit">Download File</button>
         </form>
+    </div>
     </body>
 </html>

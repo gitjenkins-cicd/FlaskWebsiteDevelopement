@@ -42,8 +42,8 @@
     </head>
     <body>
         <h1>PE Automation website for GCP</h1>
-        <img id="banner" src="static/banner1.jpg" >
-        <h2>About PE website</h2>
+        <!-- <img id="banner" src="static/banner1.jpg" > -->
+        <!-- <h2>About PE website</h2> -->
         
         <form id="uploadfile" action="/uploadfile" method="post" enctype="multipart/form-data">
             <label for="file">Select a file:</label>
@@ -52,10 +52,10 @@
             <input type="submit" value="Upload File">
         </form>
 
-    <form id="downloadfile" action="/download" method="get">
-        <label for="filename">Enter Filename:</label>
-        <input type="text" id="filename" name="filename" required>
-        <button type="submit">Download File</button>
-    </form>
+        <form id="downloadfile" action="/download" method="get">
+            <label for="filename">Enter Filename:</label>
+            <input type="text" id="filename" name="filename" required>
+            <button type="submit">Download File</button>
+        </form>
     </body>
 </html>

@@ -54,3 +54,15 @@ button:hover {
     align-items: center;
     text-align: center;
 }
+.colored-button {
+    background-color: #007bff; /* Set the background color */
+    color: #fff; /* Set the text color */
+    padding: 10px 20px; /* Add some padding for better appearance */
+    border: none; /* Remove the border */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Add a pointer cursor on hover */
+}
+
+.colored-button:hover {
+    background-color: #0056b3; /* Change the background color on hover */
+}

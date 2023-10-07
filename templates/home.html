@@ -50,7 +50,7 @@
         <!-- <img id="banner" src="static/banner1.jpg" > -->
         <!-- <h2>About PE website</h2> -->
         <br>
-        <h2>Upload a File</h2>
+        <h2>1.Upload a File</h2>
         <form  action="/uploadfile" method="post" enctype="multipart/form-data">
             <div class="upload-btn-wrapper"> 
                 <label for="file">Select a file:</label>
@@ -61,8 +61,16 @@
         </form>
    
         <br>
-        <h2>Download a File</h2>
+        <h2>2.Download a File</h2>
         <form action="/download" method="get">
+            <div class="form-group">
+                <label for="filename">Enter Filename:</label>
+                <input type="text" id="filename" name="filename" required>
+            </div>
+            <button class="colored-button" type="submit">Download File</button>
+        </form>
+        <h2>3.Download File from GCS bucket</h2>
+        <form action="/downloadgcs" method="post">
             <div class="form-group">
                 <label for="filename">Enter Filename:</label>
                 <input type="text" id="filename" name="filename" required>

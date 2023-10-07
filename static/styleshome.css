@@ -39,7 +39,7 @@ button {
     color: #fff;
     padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 16px;
     width: 100%;
@@ -51,7 +51,7 @@ button:hover {
 .header-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     text-align: center;
 }
 .colored-button {

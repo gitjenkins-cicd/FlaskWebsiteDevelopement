@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, views, send_file
+from google.cloud import storage
 app=Flask(__name__)
 from app import app
 @app.route('/uploadfile', methods=['POST'])
@@ -19,3 +20,18 @@ def download_file():
         # render_template('downloadfile.html')
     except FileNotFoundError:
         return "File not found."
+
+
+client = storage.Client()
+@app.route('/downloadgcs', methods=['POST'])
+def download_gcsfile():
+    files = request.form['filename']
+    bucket_name = 'imrantestbucket'  # Replace with your GCS bucket name
+
+    try:
+        bucket = client.get_bucket(bucket_name)
+        blob = bucket.blob(files)
+        blob.download_to_filename(files)
+        return send_file(files, as_attachment=True)
+    except Exception as e:
+        return str(e)

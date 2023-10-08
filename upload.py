@@ -65,6 +65,7 @@ db = SQLAlchemy(app)
 #     def __repr__(self):
 #         return f'<User {self.username}>'
 
+
 @app.route('/db')
 def index():
     result = db.engine.execute('SELECT User, Host, authentication_string FROM user')
@@ -73,3 +74,12 @@ def index():
     # user1=[row for row in users]
     # print(user1)
     return render_template('index.html', users=users)
+
+import pandas as pd
+@app.route('/analyze', methods=['POST'])
+def analyze():
+    csv_file = request.files['csv_file']
+    df = pd.read_csv(csv_file)
+    summary_stats = df.describe()
+
+    return render_template('csvresults.html', summary_stats=summary_stats)

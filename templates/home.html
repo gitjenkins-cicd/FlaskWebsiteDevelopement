@@ -78,5 +78,19 @@
             <button class="colored-button" type="submit">Download File</button>
         </form>
     </div>
+    <!-- <h2>4.User list</h2>
+    <form action="/db" method="post">
+        <div class="form-group">
+            <a href="{{ url_for('index') }}">User List</a>
+        </div>
+        </form>
+    </div> -->
+
+    <h1>Upload a CSV File</h1>
+    <form action="/analyze" method="post" enctype="multipart/form-data">
+        <input type="file" name="csv_file" accept=".csv">
+        <input type="submit" value="Analyze">
+    </form>
     </body>
 </html>
+

@@ -79,7 +79,16 @@ import pandas as pd
 @app.route('/analyze', methods=['POST'])
 def analyze():
     csv_file = request.files['csv_file']
-    df = pd.read_csv(csv_file)
+    df = pd.read_csv(csv_file, low_memory=False)
+    mean = df.mean()
+    median = df.median()
+    std_dev = df.std()
+    max_value = df.max()
+    min_value = df.min()
     summary_stats = df.describe()
 
-    return render_template('csvresults.html', summary_stats=summary_stats)
+    return render_template('csvresults.html', summary_stats=summary_stats, mean=mean, 
+                           median=median, 
+                           std_dev=std_dev, 
+                           max_value=max_value, 
+                           min_value=min_value)

@@ -9,5 +9,11 @@
     <h1>Analysis Results</h1>
     <h2>Summary Statistics</h2>
     {{ summary_stats.to_html() | safe }}
+    <h2>Additional Statistics</h2>
+    <p>Mean: {{ mean }}</p>
+    <p>Median: {{ median }}</p>
+    <p>Standard Deviation: {{ std_dev }}</p>
+    <p>Maximum Value: {{ max_value }}</p>
+    <p>Minimum Value: {{ min_value }}</p>
 </body>
 </html>
